@@ -10,7 +10,7 @@ const Modal = ({ car, setOpen }) => {
 		<S.ModalBg>
 			<S.Modal>
 				<S.CloseModal onClick={() => setOpen(false)}>close</S.CloseModal>
-				<S.EditModal onClick={() => setEdit(!edit)}>
+				<S.EditModal edit={edit} onClick={() => setEdit(!edit)}>
 					{edit ? 'save' : 'edit'}
 				</S.EditModal>
 				{edit ? null : <S.Disable />}

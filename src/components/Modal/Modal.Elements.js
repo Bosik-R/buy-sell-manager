@@ -34,18 +34,9 @@ export const CloseModal = styled.h2`
 	text-align: center;
 `;
 
-export const EditModal = styled.h2`
-	position: absolute;
-	text-align: center;
+export const EditModal = styled(CloseModal)`
 	top: 60px;
-	right: 15px;
-	width: 80px;
-	cursor: pointer;
-	padding: 3px;
-	margin: 0;
-	z-index: 999;
-	border: 1px solid black;
-	border-radius: 5px;
+	border-color: ${({edit}) => (edit ? '#00a800' : '#ff0000')};
 `;
 
 export const Disable = styled.div`
@@ -65,5 +56,12 @@ export const Title = styled.span`
 
 export const Input = styled.input`
 	padding: 5px 10px;
-	border: ${({ edit }) => (edit ? '1px solid #008000' : 'none')};
+	border: 1px solid;
+	border-color: ${({edit}) => (edit ? '#00a800' : 'transparent')};
+  transition: border-color 0.5s ease;
+  
+  &:focus {
+    border-color: transparent transparent #ff0080 transparent;
+    outline-style: none;
+  }
 `;
