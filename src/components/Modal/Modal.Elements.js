@@ -49,6 +49,16 @@ export const Disable = styled.div`
 	z-index: 998;
 `;
 
+export const Row = styled.div`
+	display: flex;
+	flex-wrap: wrap;
+`;
+
+export const Col = styled.div`
+	padding: 5px 10px;
+	margin: 5px 10px;
+`;
+
 export const Title = styled.span`
 	padding: 0 5px 0 0;
 	margin: 0;

@@ -1,0 +1,69 @@
+[
+	{
+		"id": "WETGHTTF454464596",
+		"name": "Opel",
+		"model": "Combo",
+		"plates": "ESI76776",
+		"buyData": {
+			"date": "02.07.2021",
+			"from": "Opel Dealer Sp.z o.o.",
+			"paid": true,
+			"payDate": "08.07.2021"
+		},
+		"sellData": {
+			"date": "14.07.2021",
+			"to": "Lorem Ipsum Car",
+			"invoice": "FV/10/02/2021"
+		},
+    "insurence": {
+      "name": "AXA",
+      "expire": "30.07.2021",
+      "30day": true 
+    }
+	},
+	{
+		"id": "WETGHTTF454461111",
+		"name": "Opel",
+		"model": "Corsa",
+		"plates": "ESI76700",
+		"buyData": {
+			"date": "02.02.2021",
+			"from": "Opel Dealer Sp.z o.o.",
+			"paid": true,
+			"payDate": "08.02.2021"
+		},
+		"sellData": {
+			"date": "",
+			"to": "Alnabala Car Comp",
+			"invoice": "FV/10/02/2021"
+		},
+    "insurence": {
+      "name": "ERGO Hestia",
+      "expire": "30.07.2021",
+      "30day": true 
+    }
+	},
+  {
+		"id": "WETGHTTF454462222",
+		"name": "Opel",
+		"model": "Corsa",
+		"plates": "ESI76700",
+		"buyData": {
+			"date": "10.02.2021",
+			"from": "Opel Dealer Sp.z o.o.",
+			"paid": true,
+			"payDate": "12.02.2021"
+		},
+		"sellData": {
+      "sold": false,
+			"date": "",
+			"to": "",
+			"invoice": ""
+		},
+    "insurence": {
+      "name": "ERGO Hestia",
+      "expire": "25.07.2021",
+      "30day": false 
+    }
+	}
+]

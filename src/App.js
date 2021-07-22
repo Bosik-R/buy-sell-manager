@@ -1,65 +1,48 @@
 import React, { useState } from 'react';
+import { connect } from 'react-redux';
 import Card from './components/Card/Card';
-import Modal from './components/Modal/Modal';
+import {Modal} from './components/Modal/Modal';
+import {getCars, addCar} from './redux/carsRedux';
 import * as S from './App.Elements';
 
-const car = [
-	{
-		id: 'WETGHTTF454464596',
-		name: 'Opel',
-		model: 'Combo',
-		plates: 'ESI76776',
-		buyData: {
-			date: '02.02.2021',
-			from: 'Opel Dealer Sp.z o.o.',
-			paid: true,
-			payDate: '08.02.2021',
-		},
-		sellData: {
-			date: '',
-			to: 'Alnabala Car Comp',
-			invoice: 'FV/10/02/2021',
-		},
-	},
-	{
-		id: 'WETGHTTF454461111',
-		name: 'Opel',
-		model: 'Corsa',
-		plates: 'ESI76700',
-		buyData: {
-			date: '02.02.2021',
-			from: 'Opel Dealer Sp.z o.o.',
-			paid: true,
-			payDate: '08.02.2021',
-		},
-		sellData: {
-			date: '',
-			to: 'Alnabala Car Comp',
-			invoice: 'FV/10/02/2021',
-		},
-	},
-];
 
-const App = () => {
+const Component = ({ cars, newCar }) => {
 	const [open, setOpen] = useState(false);
 	const [modalData, setModalData] = useState('');
 
 	const setCar = (id) => {
-		const filtered = car.filter((c) => c.id === id);
-		setModalData(filtered[0]);
+		if(id){
+			setModalData(id);
+		}else{
+			setModalData(null)
+		}
 		setOpen(true);
 	};
 
 	return (
 		<S.Container>
-			{open ? <Modal car={modalData} setOpen={setOpen} /> : null}
+			<S.AddCarBtn onClick={() => setCar(null)}>Dodaj nowe auto</S.AddCarBtn>
+			{open ? <Modal id={modalData} setOpen={setOpen} /> : null}
 			<S.CardsWrapper>
-				{car.map((c) => (
-					<Card key={c.id} car={c} setCar={setCar} />
+				{cars.map((car) => (
+					<Card key={car.id} car={car} setCar={setCar} />
 				))}
 			</S.CardsWrapper>
 		</S.Container>
 	);
 };
 
-export default App;
+const mapStateToProps = (state) => ({
+  cars: getCars(state),
+});
+
+const mapDispatchToProps = (dispatch) => ({
+  newCar: (item) => dispatch(addCar(item)),
+});
+
+const AppContainer = connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Component);
+
+export {AppContainer as App};
